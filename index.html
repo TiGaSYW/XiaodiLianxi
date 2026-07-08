@@ -32,7 +32,9 @@
         .pb-nav { padding-bottom: calc(max(env(safe-area-inset-bottom), 1rem) + 4.5rem); }
         
         /* 隐藏滚动条但保留滚动功能 */
-        ::-webkit-scrollbar { width: 0px; height: 0px; background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 4px; }
         
         /* 解决 Vue 初始化时的闪烁问题 (FOUC) */
         [v-cloak] { display: none !important; }
@@ -479,7 +481,7 @@
                         <div class="flex-shrink-0 bg-white rounded-t-3xl shadow-[0_-10px_20px_rgba(0,0,0,0.03)] border-t border-gray-100 relative z-20 pb-safe">
                             <div class="px-4 pt-4 pb-2">
                                 
-                                <div class="min-h-[160px]">
+                                <div class="h-48 overflow-y-auto pr-1 custom-scrollbar">
                                     <transition name="slide-up" mode="out-in">
                                         <!-- 状态1: 选择物料 -->
                                         <div v-if="!currentIngredient" key="ingredients">
